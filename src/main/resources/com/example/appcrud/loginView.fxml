@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,11 +18,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: black;">
+      <AnchorPane prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: black;">
          <children>
-            <GridPane layoutX="31.0" layoutY="147.0" prefHeight="207.0" prefWidth="284.0">
+            <GridPane layoutX="14.0" layoutY="221.0" prefHeight="319.0" prefWidth="435.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="136.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="28.0" />
@@ -35,7 +36,7 @@
                <children>
                   <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#actionButtonLogin" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: grey;" text="Login" textFill="#fffb00" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="25.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -46,25 +47,17 @@
                   </Button>
                   <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="138.0" text="User:" textFill="#fffb00">
                      <font>
-                        <Font name="Ebrima" size="20.0" />
+                        <Font name="Ebrima" size="35.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="139.0" text="Password:" textFill="#fffb00" GridPane.rowIndex="1">
+                  <Label alignment="CENTER_RIGHT" prefHeight="58.0" prefWidth="188.0" text="Password:" textFill="#fffb00" GridPane.rowIndex="1">
                      <font>
-                        <Font name="Ebrima" size="20.0" />
+                        <Font name="Ebrima" size="35.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="pFUser" opacity="0.8" GridPane.columnIndex="2">
+                  <PasswordField fx:id="pFPassword" opacity="0.8" prefHeight="44.0" prefWidth="165.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </PasswordField>
-                  <PasswordField fx:id="pFPassword" opacity="0.8" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="16.0" />
+                        <Font size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="TEXT" />
@@ -72,7 +65,7 @@
                   </PasswordField>
                   <Button fx:id="btnSignUp" mnemonicParsing="false" onAction="#actionButtonSignUp" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: grey;" text="Sign up" textFill="#fffb00" GridPane.rowIndex="2">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="25.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
@@ -81,27 +74,32 @@
                         <ColorAdjust saturation="0.45" />
                      </effect>
                   </Button>
+                  <TextField fx:id="txtUserLogin" opacity="0.8" prefHeight="44.0" prefWidth="176.0" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
                </children>
             </GridPane>
-            <Label layoutX="134.0" layoutY="48.0" text="Login" textFill="#fffb00" underline="true">
+            <Label layoutX="174.0" layoutY="57.0" text="Login" textFill="#fffb00" underline="true">
                <font>
-                  <Font name="Franklin Gothic Medium" size="35.0" />
+                  <Font name="Franklin Gothic Medium" size="50.0" />
                </font>
             </Label>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets></AnchorPane>
-      <AnchorPane layoutX="350.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: gold;">
+      <AnchorPane layoutX="450.0" prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: gold;">
          <children>
-            <ImageView fitHeight="262.0" fitWidth="275.0" layoutX="45.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="423.0" fitWidth="422.0" layoutX="13.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../../../../../../Desktop/Login.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="26.0" layoutY="285.0" prefHeight="68.0" prefWidth="301.0" text="MY ACCOUNT" underline="true">
+            <Label alignment="CENTER" layoutX="41.0" layoutY="470.0" prefHeight="73.0" prefWidth="363.0" text="MY ACCOUNT" underline="true">
                <font>
-                  <Font name="System Bold" size="40.0" />
+                  <Font name="System Bold" size="50.0" />
                </font>
                <textFill>
                   <RadialGradient centerX="0.4944751381215469" centerY="0.49526066350710907" focusDistance="-0.3908045977011494" radius="1.0">

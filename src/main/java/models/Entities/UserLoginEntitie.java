@@ -19,8 +19,15 @@ public class UserLoginEntitie {
     /*--------------------------------- Constructors -----------------------------------*/
 
     // Parameterless constroctor
-    public UserLoginEntitie(){
-
+    public UserLoginEntitie() {
+        this.idUser = new SimpleIntegerProperty();
+        this.userName = new SimpleStringProperty();
+        this.userPassword = new SimpleStringProperty();
+        this.email = new SimpleStringProperty();
+        this.fullName = new SimpleStringProperty();
+        this.phoneNumber = new SimpleStringProperty();
+        this.dateOfBirth = new SimpleObjectProperty<>();
+        this.registrationDate = new SimpleObjectProperty<>();
     }
 
     // Constructor with parameters

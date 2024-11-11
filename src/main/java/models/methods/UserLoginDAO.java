@@ -14,11 +14,10 @@ public class UserLoginDAO {
 
     /*--------------------------------- Method Create -----------------------------------*/
     public boolean addUserLogin(UserLoginEntitie user) {
-        String query = "INSERT INTO userTable (idUser,  userName, userPassword,  email, fullName, phoneNumber,  dateOfBirth, registrationDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO userTable (userName, userPassword,  email, fullName, phoneNumber,  dateOfBirth, registrationDate) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectionDB.startConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setString(1, user.getUserName());
-            // Usamos PasswordUtils para encriptar la contraseña antes de almacenarla
             String hashedPassword = PasswordUtils.hashPassword(user.getUserPassword());
             pstmt.setString(2, hashedPassword);
             pstmt.setString(3, user.getEmail());
@@ -72,8 +71,8 @@ public class UserLoginDAO {
             pstmt.setString(3, user.getEmail());
             pstmt.setString(4, user.getFullName());
             pstmt.setString(5, user.getPhoneNumber());
-            pstmt.setObject(7, user.getDateOfBirth());
-            pstmt.setObject(8, user.getRegistrationDate());
+            pstmt.setObject(6, user.getDateOfBirth());
+            pstmt.setObject(7, user.getRegistrationDate());
             int rowsAffected = pstmt.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException e) {
@@ -96,5 +95,23 @@ public class UserLoginDAO {
             System.out.println("Error deleting user from the database: " + e.getMessage());
             return false;
         }
+    }
+
+    /*--------------------------------- Validate User -----------------------------------*/
+    public boolean validateUser(String userName, String password){
+        String query = "SELECT userPassword FROM userTable WHERE BINARY userName = ?";
+        try(Connection connection = ConnectionDB.startConnection();
+        PreparedStatement pstmt = connection.prepareStatement(query)){
+            pstmt.setString(1, userName);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()){
+                String storedPassword = rs.getString("userPassword");
+                return PasswordUtils.checkPassword(password, storedPassword);
+            }
+        } catch(SQLException e){
+            System.out.println("Error during user validation: " + e.getMessage());
+        }
+        return false;
     }
 }

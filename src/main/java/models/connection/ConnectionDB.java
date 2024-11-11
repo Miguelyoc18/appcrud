@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionDB {
     private static Connection connection;
-    private final static String userConnection = System.getenv("Miguelyoc");
-    private final static String passwordConnection = System.getenv("Mikymcvd#16020");
+    private final static String userConnection = "root";
+    private final static String passwordConnection = "Mikymcvd#16020";
     private final static int localHost = 3306;
     private final static String db = "appcrud";
     private final static String url = "jdbc:mysql://localhost:" + localHost + "/" + db;
@@ -20,6 +20,7 @@ public class ConnectionDB {
 
     /*--------------------------------- Methods -----------------------------------*/
 
+    //Start
     public static synchronized Connection startConnection() {
         if (connection == null || connectionStatus(connection)) {
             try {
@@ -35,6 +36,7 @@ public class ConnectionDB {
         return connection;
     }
 
+    //Close
     public static void closeConnection() {
         if (connection != null) {
             try {

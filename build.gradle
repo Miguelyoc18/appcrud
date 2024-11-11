@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.example.appcrud'
-    mainClass = 'com.example.appcrud.HelloApplication'
+    mainClass = 'com.example.appcrud.App'
 }
 
 javafx {
@@ -50,6 +50,7 @@ dependencies {
         exclude(group: 'org.openjfx')
     }
     implementation 'org.mindrot:jbcrypt:0.4'
+    implementation 'mysql:mysql-connector-java:8.0.33'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -69,4 +70,8 @@ jlink {
 
 jlinkZip {
     group = 'distribution'
+}
+
+application{
+    mainClass = 'com.example.appcrud'
 }

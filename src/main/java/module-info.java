@@ -11,6 +11,7 @@ module com.example.appcrud {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires jbcrypt;
+    requires mysql.connector.j;
 
     opens com.example.appcrud to javafx.fxml;
     exports com.example.appcrud;
